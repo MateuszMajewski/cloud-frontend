@@ -21,7 +21,7 @@ class PlayingController extends Controller
     {
         try {
 
-            $response = $this->client->get('http://10.0.0.20:5000/api/playing');
+            $response = $this->client->get('http://cloud-backend:5000/api/playing');
             $results = $response->getBody();
             $results = json_decode($results);
 
@@ -46,7 +46,7 @@ class PlayingController extends Controller
     public function store(Request $request)
     {
         try {
-                $response = $this->client->post('http://10.0.0.20:5000/api/playing', [
+                $response = $this->client->post('http://cloud-backend:5000/api/playing', [
                     GuzzleHttp\RequestOptions::JSON => [
                         'playerID' => $request->input('playerID'),
                         'schoolID' => $request->input('schoolID'),
@@ -71,7 +71,7 @@ class PlayingController extends Controller
     {
         try {
 
-            $response = $this->client->get('http://10.0.0.20:5000/api/playing/'.$id);
+            $response = $this->client->get('http://cloud-backend:5000/api/playing/'.$id);
             $results = $response->getBody();
             $results = json_decode($results);
 
@@ -91,7 +91,7 @@ class PlayingController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $response = $this->client->put('http://10.0.0.20:5000/api/playing/'.$id, [
+            $response = $this->client->put('http://cloud-backend:5000/api/playing/'.$id, [
                 GuzzleHttp\RequestOptions::JSON => [
                     'playerID' => $request->input('playerID'),
                     'schoolID' => $request->input('schoolID'),
@@ -117,7 +117,7 @@ class PlayingController extends Controller
     {
         try {
 
-            $response = $this->client->delete('http://10.0.0.20:5000/api/playing/'.$id);
+            $response = $this->client->delete('http://cloud-backend:5000/api/playing/'.$id);
             $results = $response->getBody();
             $results = json_decode($results);
 
